@@ -2,4 +2,8 @@
     <string name="app_name">MapsApi</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="ok">OK</string>
+    <string name="distance">The distance is: </string>
 </resources>
