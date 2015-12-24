@@ -1,1 +1,1 @@
-# TeachingPAMO
+# Teaching PAMO
