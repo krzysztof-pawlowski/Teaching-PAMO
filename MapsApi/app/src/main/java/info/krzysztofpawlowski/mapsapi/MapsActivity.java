@@ -17,6 +17,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker mFromMarker;
     private Marker mToMarker;
     private Geocoder mGeocoder;
+    private Polyline mPolyline;
 
 
     @Override
@@ -95,9 +98,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (mToMarker != null && mFromMarker != null) {
             float distance = getDistanceBetweenMarkers(mFromMarker, mToMarker);
             TextView distanceTextView = (TextView) findViewById(R.id.distance_text_view);
-            distanceTextView.setText(new Float(distance).toString() + "m");
+            distanceTextView.setText(new Float(distance / 1000).toString() + "km");
 
+            PolylineOptions polylineOptions = new PolylineOptions();
+            polylineOptions.add(mFromMarker.getPosition());
+            polylineOptions.add(mToMarker.getPosition());
 
+            if (mPolyline != null) {
+                mPolyline.remove();
+            }
+            mPolyline = mMap.addPolyline(polylineOptions);
         }
     }
 
