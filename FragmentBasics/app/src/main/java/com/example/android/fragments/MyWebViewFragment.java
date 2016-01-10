@@ -16,6 +16,14 @@ public class MyWebViewFragment extends Fragment {
     private WebView mWebView;
     private boolean mIsWebViewAvailable;
 
+    private String mUrl;
+
+    public MyWebViewFragment() {}
+
+    public MyWebViewFragment(String url) {
+        this.mUrl = url;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,6 +49,9 @@ public class MyWebViewFragment extends Fragment {
         mIsWebViewAvailable = true;
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
+        if (mUrl != null) {
+            loadUrl(mUrl);
+        }
         return mWebView;
     }
 

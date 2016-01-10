@@ -35,12 +35,12 @@ public class MainActivity extends Activity
             try {
                 WebView webView = webViewFragment.getWebView();
                 webView.getSettings().setJavaScriptEnabled(true);
-                webView.loadUrl("http://onet.pl");
+                webView.loadUrl(Consts.WEB_ADDRESSES[position]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            MyWebViewFragment newFragment = new MyWebViewFragment();
+            MyWebViewFragment newFragment = new MyWebViewFragment(Consts.WEB_ADDRESSES[position]);
             Bundle args = new Bundle();
             args.putInt(MyWebViewFragment.ARG_POSITION, position);
             newFragment.setArguments(args);
