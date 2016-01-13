@@ -1,4 +1,4 @@
-package info.krzysztofpawlowski.restapi;
+package info.krzysztofpawlowski.restfulapi;
 
 import org.junit.Test;
 

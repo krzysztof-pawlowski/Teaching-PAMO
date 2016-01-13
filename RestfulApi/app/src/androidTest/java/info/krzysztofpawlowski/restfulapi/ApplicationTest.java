@@ -1,4 +1,4 @@
-package info.krzysztofpawlowski.restapi;
+package info.krzysztofpawlowski.restfulapi;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
